@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ profile_user.username }}'s Profile - RedVibe{% endblock %}
+
+{% block content %}
+<div style="max-width:800px; margin:20px auto; padding:20px; border:1px solid #ddd; border-radius:10px; background:#fafafa;">
+    <h2 style="margin-bottom:10px;">👤 {{ profile_user.username }}'s Profile</h2>
+    <p><strong>Email:</strong> {{ profile_user.email }}</p>
+
+    <hr style="margin:20px 0;">
+
+    <h3>📸 User's Posts</h3>
+    {% if profile_user.post_set.all %}
+        <ul style="list-style:none; padding:0;">
+            {% for post in profile_user.post_set.all %}
+                <li style="margin-bottom:15px; padding:10px; border:1px solid #ccc; border-radius:8px; background:#fff;">
+                    <p><strong>{{ post.title }}</strong></p>
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="Post Image" style="max-width:200px; border-radius:8px;">
+                    {% endif %}
+                    {% if post.video %}
+                        <video controls style="max-width:300px; display:block; margin-top:10px;">
+                            <source src="{{ post.video.url }}" type="video/mp4">
+                        </video>
+                    {% endif %}
+                    <p>{{ post.caption }}</p>
+                    <a href="{% url 'view_post' post.id %}">🔗 View Post</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

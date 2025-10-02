@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load string_filters %}
+
+{% block content %}
+<div class="feed-container">
+
+  {% if posts %}
+    {% for post in posts %}
+      <div class="feed-item" data-post-id="{{ post.id }}">
+        {% if post.is_video %}
+          <div class="feed-video-wrap">
+            <video class="feed-video" src="{{ post.file.url }}" playsinline></video>
+            <button class="unmute-btn" style="display:none;">🔊</button>
+          </div>
+        {% else %}
+          <img src="{{ post.file.url }}" alt="Post" class="feed-image">
+        {% endif %}
+        <div class="feed-info">
+          <strong>@{{ post.creator.username }}</strong>
+          <p>{{ post.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No posts available.</p>
+  {% endif %}
+
+</div>
+{% endblock %}

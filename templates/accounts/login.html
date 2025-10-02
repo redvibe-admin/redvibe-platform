@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login-box">
+  <p class="age-warning">⚠️ This is an 18+ platform. By logging in, you confirm you are 18 years or older.</p>
+  <h2>Login</h2>
+  <form method="post" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+</div>
+{% endblock %}

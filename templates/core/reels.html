@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load string_filters %}
+
+{% block content %}
+<div class="reels-container">
+  {% for post in posts %}
+    {% if post.is_video %}
+      <div class="reel" data-post-id="{{ post.id }}">
+        <video class="reel-video" src="{{ post.file.url }}" playsinline loop></video>
+
+        <div class="reel-overlay">
+          <h4>@{{ post.creator.username }}</h4>
+          <p>{{ post.description }}</p>
+        </div>
+
+        <div class="reel-actions">
+          <button class="sound-toggle" title="Toggle sound">🔊</button>
+          <button class="like-btn" title="Like">❤️</button>
+          <button class="comment-btn" title="Comment">💬</button>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% block extra_js %}
+<script src="{% static 'js/reels_scroll.js' %}"></script>
+{% endblock %}
+{% endblock %}

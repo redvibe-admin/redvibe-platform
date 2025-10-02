@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<h3>Reported Posts</h3>
+{% for report in reports %}
+    <div class="report-card">
+        <p>Post by {{ report.post.creator.first_name }} | Reported by {{ report.reporter.first_name }}</p>
+        <p>Reason: {{ report.reason }} | Details: {{ report.details }}</p>
+        {% if report.post.file.url.endswith:'.mp4' or report.post.file.url.endswith:'.mov' %}
+            <video src="{{ report.post.file.url }}" controls width="300"></video>
+        {% else %}
+            <img src="{{ report.post.file.url }}" width="300">
+        {% endif %}
+        <p>Date: {{ report.created_at }}</p>
+        <button>View Post</button>
+        <button>Delete Post</button>
+        <button>Suspend User</button>
+    </div>
+    <hr>
+{% endfor %}
+{% endblock %}

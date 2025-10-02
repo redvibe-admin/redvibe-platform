@@ -1,0 +1,52 @@
+.reels-container {
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background: #000;
+}
+
+.reel {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.reel video {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.reel-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  color: #fff;
+}
+
+.reel-overlay h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.reel-actions {
+  position: absolute;
+  right: 10px;
+  bottom: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(50%);
+}
+
+.reel-actions i {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}

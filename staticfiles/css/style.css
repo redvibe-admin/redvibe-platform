@@ -1,0 +1,159 @@
+/* ===========================
+   Global
+=========================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  color: #050505;
+}
+
+/* ===========================
+   Header
+=========================== */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;  /* logo left, login right */
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e60023;
+}
+
+.age-warning {
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.header-user {
+  font-weight: bold;
+  color: #333;
+}
+
+header .header-right form {
+  display: inline;
+  margin: 0;
+}
+
+header .header-right button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  height: calc(100vh - 70px);
+}
+
+.sidebar a {
+  font-size: 24px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* ===========================
+   Feed (Home Page)
+=========================== */
+.feed-container {
+  margin-top: 90px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.feed-item {
+  background: #fff;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.feed-item video,
+.feed-item img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.feed-info {
+  padding: 10px;
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* ===========================
+   Login / Signup Box
+=========================== */
+.login-box {
+  max-width: 400px;
+  margin: 100px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background: #e60023;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #cc001f;
+}

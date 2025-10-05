@@ -13,7 +13,7 @@ from .forms import CommentForm
 # ----------------------------
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
-from moviepy.video.compositing.concatenate import concatenate_videoclips
+from moviepy.editor import concatenate_videoclips
 
 import tempfile, os
 import json

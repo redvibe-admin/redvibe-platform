@@ -9,11 +9,11 @@ from .models import Post, Comment, Report
 from .forms import CommentForm
 
 # ----------------------------
-# MoviePy Imports (server-compatible)
+# MoviePy Imports (VPS-compatible)
 # ----------------------------
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
-from moviepy.editor import concatenate_videoclips
+from moviepy.video.compositing.concatenate import concatenate_videoclips
 
 import tempfile, os
 import json
@@ -227,3 +227,4 @@ def contact_view(request):
 def profile_view(request, user_id):
     profile_user = get_object_or_404(request.user.__class__, pk=user_id)
     return render(request, 'core/profile.html', {'profile_user': profile_user})
+

@@ -11,9 +11,9 @@ from .forms import CommentForm
 # ----------------------------
 # MoviePy Imports (VPS-compatible)
 # ----------------------------
-from moviepy.video.io.VideoFileClip import VideoFileClip
-from moviepy.audio.io.AudioFileClip import AudioFileClip
-from moviepy.video.compositing.concatenate import concatenate_videoclips
+# MoviePy imports (VPS-compatible)
+from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips
+
 
 import tempfile, os
 import json

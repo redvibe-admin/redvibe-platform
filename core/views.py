@@ -9,26 +9,11 @@ from .models import Post, Comment, Report
 from .forms import CommentForm
 
 # ----------------------------
-# MoviePy imports (VPS-compatible dummy for live launch)
+# MoviePy Imports (VPS-compatible)
 # ----------------------------
-try:
-    from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips
-except ModuleNotFoundError:
-    # Dummy classes for live launch
-    class VideoFileClip:
-        def __init__(self, *args, **kwargs):
-            self.duration = 1
-        def close(self):
-            pass
-
-    class AudioFileClip:
-        def __init__(self, *args, **kwargs):
-            pass
-        def close(self):
-            pass
-
-    def concatenate_videoclips(clips):
-        return clips[0] if clips else None
+from moviepy.video.io.VideoFileClip import VideoFileClip
+from moviepy.audio.io.AudioFileClip import AudioFileClip
+from moviepy.video.compositing.concatenate import concatenate_videoclips
 
 import tempfile, os
 import json
@@ -242,5 +227,6 @@ def contact_view(request):
 def profile_view(request, user_id):
     profile_user = get_object_or_404(request.user.__class__, pk=user_id)
     return render(request, 'core/profile.html', {'profile_user': profile_user})
+
 
 

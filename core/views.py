@@ -7,7 +7,14 @@ from django.contrib.auth import login as auth_login, authenticate
 from django.views.decorators.http import require_POST
 from .models import Post, Comment, Report
 from .forms import CommentForm
-from moviepy.editor import VideoFileClip
+
+# ----------------------------
+# MoviePy Imports (server-compatible)
+# ----------------------------
+from moviepy.video.io.VideoFileClip import VideoFileClip
+from moviepy.audio.io.AudioFileClip import AudioFileClip
+from moviepy.video.compositing.concatenate import concatenate_videoclips
+
 import tempfile, os
 import json
 
@@ -153,7 +160,7 @@ def signup_view(request):
 # ----------------------------
 def view_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    post.is_video = _is_video_file(getattr(post, 'file', '') and getattr(p.file, 'url', getattr(post.file, 'name', '')))
+    post.is_video = _is_video_file(getattr(post, 'file', '') and getattr(post.file, 'url', getattr(post.file, 'name', '')))
     comment_form = CommentForm()
     return render(request, 'core/view_post.html', {'post': post, 'comment_form': comment_form})
 
